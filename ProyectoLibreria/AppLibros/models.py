@@ -18,7 +18,7 @@ class Editorial(models.Model):
 class Autor(models.Model):
     nombre= models.CharField(max_length=30)
     apellido= models.CharField(max_length=30)
-    email= models.EmailField()
+    email= models.EmailField(blank=True)
 
     def __str__(self):
         return self.nombre + " " + self.apellido
@@ -26,7 +26,7 @@ class Autor(models.Model):
 class Libro(models.Model):
     titulo= models.CharField(max_length=30)
     isbn= models.CharField(max_length=30)
-    descripcion = models.CharField(max_length=1000)
+    descripcion = models.CharField(max_length=1000, blank=True)
     publication_date = models.DateField()
     editorial = models.ForeignKey(Editorial,on_delete=models.CASCADE)
     autor = models.ForeignKey(Autor,on_delete=models.CASCADE)

@@ -1,0 +1,33 @@
+{% extends "AppLibros/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia1 %} Página de inicio {% endblock %}
+
+{% block contenidoQueCambia2 %}
+
+{% if mensaje %}
+<h2>{{ mensaje }}</h2>
+
+{% else %}
+
+
+<h1>Resultados de la búsqueda: </h1>
+
+
+<ul>
+    {% for autor in autores %}
+
+    <li> Nombre: {{ autor.nombre }}</li>
+    <li> Apellido: {{ autor.apellido }}</li>
+    <li> Email: {{ autor.email }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'BusquedaAutor' %}">Buscar otro autor</a>
+
+
+
+{% endif %}
+
+{% endblock %}
