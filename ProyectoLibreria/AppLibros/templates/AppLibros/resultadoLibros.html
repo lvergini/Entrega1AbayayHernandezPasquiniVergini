@@ -19,14 +19,18 @@
  
 <h3>{{ libro.titulo }}</h3>
 <ul>
-    <li> Autor: {{ libro.autor }}</li>
-    <li> ISBN: {{ libro.isbn }}</li>
-    <li> Descripción: {{ libro.descripcion }}</li>
-    <li> Fecha de publicación: {{ libro.publication_date }}</li>
-    <li> Editorial: {{ libro.editorial }}</li>
+    <li> <strong>Autor</strong>: {{ libro.autor }}</li>
+    <li> <strong>ISBN</strong>: {{ libro.isbn }}</li>
+    <li> <strong>Descripción</strong>: {{ libro.descripcion }}</li>
+    <li> <strong>Fecha de publicación</strong>: {{ libro.publication_date }}</li>
+    <li> <strong>Editorial</strong>: {{ libro.editorial }}</li>
 </ul>
 
 {% endfor %}
+
+
+{{ mensajeLibro }}
+
 
 <a href="{% url 'BusquedaLibro' %}">Buscar otro libro</a>
 
