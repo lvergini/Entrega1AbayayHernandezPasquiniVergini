@@ -18,7 +18,7 @@ class LibroFormulario(forms.Form):
     titulo= forms.CharField(max_length=30)
     isbn= forms.CharField(max_length=30)
     descripcion = forms.CharField(max_length=1000)
-    publication_date = forms.DateField()
+    fecha_publicacion = forms.DateField()
     autor = MyAutorChoiceField(queryset=Autor.objects.all())
     editorial = MyEditorialChoiceField(queryset=Editorial.objects.all())
     #autor = models.ForeignKey(Autor,on_delete=models.CASCADE)
