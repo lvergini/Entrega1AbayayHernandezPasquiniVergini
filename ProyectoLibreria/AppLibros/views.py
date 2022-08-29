@@ -37,7 +37,7 @@ def buscar(request):
         else:
             return render(request, "AppLibros/resultadoAutores.html", {"mensaje": f"No hay autores con el apellido {apellido}"})
     else:
-        return render(request, "Appcoder/busquedaAutor.html", {"mensaje": "No enviaste datos!"})
+        return render(request, "AppLibros/busquedaAutor.html", {"mensaje": "No enviaste datos!"})
 
 
 
@@ -64,3 +64,24 @@ def libroCrear(request):
         miFormulario=LibroFormulario()
         return render(request, "AppLibros/libroCrear.html", {"formulario": miFormulario})
 
+def busquedaLibro(request):
+    return render(request, "AppLibros/busquedaLibro.html")
+
+def buscarLibro(request):
+    if request.GET["autor"]:
+        autor=request.GET["autor"]
+        libros=Libro.objects.filter(autor__apellido__icontains=autor)
+
+        if len(libros)!=0:
+            return render(request, "AppLibros/resultadoLibros.html", {"libros":libros})
+        else:
+            return render(request, "AppLibros/resultadoLibros.html", {"mensaje": f'No hay libros del autor "{autor}"'})
+    elif request.GET["titulo"]:
+        titulo=request.GET["titulo"]
+        libros=Libro.objects.filter(titulo__icontains=titulo)
+        if len(libros)!=0:
+            return render(request, "AppLibros/resultadoLibros.html", {"libros":libros})
+        else:
+            return render(request, "AppLibros/resultadoLibros.html", {"mensaje": f'No hay libros que contengan en su título "{titulo}"'})
+    else:
+        return render(request, "AppLibros/busquedaLibro.html", {"mensaje": "No enviaste datos!"})
