@@ -25,10 +25,33 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>´
-                <a class="navbar-brand" href="{% url 'LibroCrear' %}">Libros</a>
-                <a class="navbar-brand" href="{% url 'AutorCrear' %}">Autores</a>
-                <a class="navbar-brand" href="{% url 'EditorialCrear' %}">Editoriales</a>
- 
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Libros
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="{% url 'LibroCrear' %}">Cargar un libro</a></li>
+                      <li><a class="dropdown-item" href="{% url 'BusquedaLibro' %}">Buscar un libro</a></li>
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Autores
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="{% url 'AutorCrear' %}">Cargar un autor</a></li>
+                      <li><a class="dropdown-item" href="{% url 'BusquedaAutor' %}">Buscar un autor</a></li>
+                    </ul>
+                  </div>                
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Editoriales
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="{% url 'EditorialCrear' %}">Cargar una editorial</a></li>
+                      <li><a class="dropdown-item" href="{% url 'BusquedaEditorial' %}">Buscar una editorial</a></li>
+                    </ul>
+                  </div>                
             </div>
         </nav>
 
