@@ -1,6 +1,6 @@
 Proyecto Final - CoderHouse
 
-La aplicacion final está basado en el modelo de una libreria que maneja:
+La aplicacion final está basada en el modelo de una libreria que maneja:
 - Libros
 - Editoriales
 - Autores
