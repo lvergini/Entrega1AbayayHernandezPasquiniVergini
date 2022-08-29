@@ -48,12 +48,12 @@ def libroCrear(request):
             _titulo=info["titulo"]
             _isbn=info["isbn"]
             _descripcion=info["descripcion"]
-            _publication_date= info["publication_date"]
+            _fecha_publicacion= info["fecha_publicacion"]
           
             _autor= Autor.objects.get(pk = info["autor"].id)
             _editorial= Editorial.objects.get(pk = info["editorial"].id)
 
-            libro = Libro(titulo = _titulo, isbn = _isbn, descripcion = _descripcion, publication_date = _publication_date , autor= _autor, editorial = _editorial)
+            libro = Libro(titulo = _titulo, isbn = _isbn, descripcion = _descripcion, _fecha_publicacion = _fecha_publicacion , autor= _autor, editorial = _editorial)
             libro.save()
             return render(request, "AppLibros/inicio.html", {"mensaje": f"Se creó el libro {_titulo}"})
         else:
