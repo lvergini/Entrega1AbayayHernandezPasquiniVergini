@@ -31,7 +31,7 @@ def busquedaAutor(request):
 def buscar(request):
     if request.GET["apellido"]:
         apellido=request.GET["apellido"]
-        autores=Autor.objects.filter(apellido=apellido)
+        autores=Autor.objects.filter(apellido__icontains=apellido)
         if len(autores)!=0:
             return render(request, "AppLibros/resultadoAutores.html", {"autores":autores})
         else:
