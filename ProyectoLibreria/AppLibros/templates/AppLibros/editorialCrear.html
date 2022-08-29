@@ -1,0 +1,34 @@
+{% extends "AppLibros/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia1 %} Crear Editorial {% endblock %}
+
+{% block contenidoQueCambia2 %}
+
+{% if miFormulario.errors %}
+
+<p style="color:red;">Están mal los datos, revisar</p>
+
+{% endif %}
+
+<h3> Ingrese los datos de la editorial que va a crear: </h3>
+<form action="" method="POST"> {% csrf_token %} 
+
+
+    <table>
+
+        {{ formulario.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+</form>
+
+<br>
+
+<h2><a href="{% url 'BusquedaEditorial' %}">Buscar una editorial</a> </h2>
+
+
+{% endblock %}

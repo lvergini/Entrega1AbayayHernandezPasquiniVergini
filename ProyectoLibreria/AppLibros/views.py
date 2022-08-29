@@ -38,7 +38,7 @@ def buscar(request):
         else:
             return render(request, "AppLibros/resultadoAutores.html", {"mensaje": f"No hay autores con el apellido {apellido}"})
     else:
-        return render(request, "AppLibros/busquedaAutor.html", {"mensaje": "No enviaste datos!"})
+        return render(request, "AppLibros/busquedaAutor.html", {"mensaje": "¡No enviaste datos!"})
 
 def libroCrear(request):
     if request.method=="POST":
@@ -96,4 +96,38 @@ def buscarLibro(request):
         else:
             return render(request, "AppLibros/resultadoLibros.html", {"mensaje": f'No hay libros que contengan en su título "{titulo}"'})
     else:
-        return render(request, "AppLibros/busquedaLibro.html", {"mensaje": "No enviaste datos!"})
+        return render(request, "AppLibros/busquedaLibro.html", {"mensaje": "¡No enviaste datos!"})
+
+def editorialCrear(request):
+    if request.method=="POST":
+        miFormulario=EditorialFormulario(request.POST)
+        if miFormulario.is_valid():
+            info=miFormulario.cleaned_data
+            nombre=info["nombre"]
+            direccion=info["direccion"]
+            responsable=info["responsable"]
+            email=info["email"]
+            editorial=Editorial(nombre=nombre, direccion=direccion, responsable=responsable, email=email)
+            editorial.save()
+            return render(request, "AppLibros/inicio.html", {"mensaje": f"Se creó la editorial {nombre}"})
+        else:
+            return render(request, "AppLibros/inicio.html", {"mensaje": "Error. Se ingresaron mal los datos"})
+    
+    else:
+        miFormulario=EditorialFormulario()
+        return render(request, "AppLibros/editorialCrear.html", {"formulario": miFormulario})
+
+def busquedaEditorial(request):
+    return render(request, "AppLibros/busquedaEditorial.html")
+
+def buscarEditorial(request):
+    if request.GET["nombre"]:
+        nombre=request.GET["nombre"]
+        editoriales=Editorial.objects.filter(nombre__icontains=nombre)
+        libros=Libro.objects.filter(editorial__nombre__icontains=nombre)
+        if len(editoriales)!=0:
+            return render(request, "AppLibros/resultadoEditoriales.html", {"editoriales":editoriales, "libros":libros})
+        else:
+            return render(request, "AppLibros/resultadoEditoriales.html", {"mensaje": f'No hay editoriales con el nombre "{nombre}"'})
+    else:
+        return render(request, "AppLibros/busquedaEditorial.html", {"mensaje": "¡No enviaste datos!"})

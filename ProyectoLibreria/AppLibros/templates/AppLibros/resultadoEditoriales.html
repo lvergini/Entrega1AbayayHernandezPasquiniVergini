@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block contenidoQueCambia1 %} Resultados de búsqueda de autores {% endblock %}
+{% block contenidoQueCambia1 %} Resultados de búsqueda de editoriales {% endblock %}
 
 {% block contenidoQueCambia2 %}
 
@@ -16,17 +16,18 @@
 
 
 <ul>
-    {% for autor in autores %}
+    {% for editorial in editoriales %}
 
-    <li> <strong>Nombre</strong>: {{ autor.nombre }}</li>
-    <li> <strong>Apellido</strong>: {{ autor.apellido }}</li>
-    <li> <strong>Email</strong>: {{ autor.email }}</li>
+    <li> <strong>Nombre</strong>: {{ editorial.nombre }}</li>
+    <li> <strong>Dirección</strong>: {{ editorial.direccion }}</li>
+    <li> <strong>Responsable</strong>: {{ editorial.responsable }}</li>
+    <li> <strong>Email</strong>: {{ editorial.email }}</li>
 
 </ul>
 
     {% if libros %}
 
-    <h3>Libros de {{ autor.apellido }}: </h3>
+    <h3>Libros de {{ editorial.nombre }}: </h3>
 
     {% for libro in libros %}
 
@@ -41,14 +42,14 @@
     {% endfor %}
     {% else %}
 
-    <p>Todavía no hay ningún libro cargado del autor {{ autor.nombre}} {{ autor.apellido }}</p>
+    <p>Todavía no hay ningún libro cargado de la editorial {{ editorial.nombre }}</p>
 
     {% endif %}
 
  
     {% endfor %}
 
-<a href="{% url 'BusquedaAutor' %}">Buscar otro autor</a>
+<a href="{% url 'BusquedaEditorial' %}">Buscar otra editorial</a>
 
 
 
