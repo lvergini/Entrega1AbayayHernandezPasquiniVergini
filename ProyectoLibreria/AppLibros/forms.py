@@ -10,7 +10,6 @@ class MyAutorChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.nombre + " " + obj.apellido
 
-
 class MyEditorialChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return obj.nombre
@@ -24,3 +23,8 @@ class LibroFormulario(forms.Form):
     editorial = MyEditorialChoiceField(queryset=Editorial.objects.all())
     #autor = models.ForeignKey(Autor,on_delete=models.CASCADE)
 
+class EditorialFormulario(forms.Form):
+    nombre=forms.CharField(max_length=40)
+    direccion=forms.CharField(max_length=200)
+    responsable=forms.CharField(max_length=100)
+    email=forms.EmailField()

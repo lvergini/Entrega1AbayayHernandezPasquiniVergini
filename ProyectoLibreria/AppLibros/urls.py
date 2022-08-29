@@ -10,5 +10,8 @@ urlpatterns = [
     path('libroCrear/', views.libroCrear, name="LibroCrear"),
     path('busquedaLibro/', views.busquedaLibro, name='BusquedaLibro'),
     path('buscarLibro/', views.buscarLibro, name='buscarLibro'),
+    path('editorialCrear/', views.editorialCrear, name="EditorialCrear"),
+    path('busquedaEditorial/', views.busquedaEditorial, name='BusquedaEditorial'),
+    path('buscarEditorial/', views.buscarEditorial, name='BuscarEditorial'),
 ]
 
