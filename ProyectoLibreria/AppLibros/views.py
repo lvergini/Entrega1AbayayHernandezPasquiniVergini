@@ -82,8 +82,10 @@ def buscarLibro(request):
     if request.GET["autor"]:
         autor=request.GET["autor"]
         libros=Libro.objects.filter(autor__apellido__icontains=autor)
-
-        if len(libros)!=0:
+        autores=Autor.objects.filter(apellido__icontains=autor)
+        if len(autores)==0:
+            return render(request, "AppLibros/resultadoLibros.html", {"mensajeLibro": f'No hay ningún autor de apellido "{autor}"'})
+        elif len(libros)!=0:
             return render(request, "AppLibros/resultadoLibros.html", {"libros":libros})
         else:
             return render(request, "AppLibros/resultadoLibros.html", {"mensaje": f'No hay libros del autor "{autor}"'})
