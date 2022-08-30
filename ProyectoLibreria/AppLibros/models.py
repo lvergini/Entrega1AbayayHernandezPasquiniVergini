@@ -28,7 +28,7 @@ class Autor(models.Model):
 
 
 class Libro(models.Model):
-    titulo= models.CharField(max_length=30)
+    titulo= models.CharField(max_length=100)
     isbn= models.CharField(max_length=30)
     descripcion = models.CharField(max_length=1000, blank=True)
     fecha_publicacion = models.DateField()

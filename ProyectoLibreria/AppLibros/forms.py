@@ -15,7 +15,7 @@ class MyEditorialChoiceField(forms.ModelChoiceField):
         return obj.nombre
 
 class LibroFormulario(forms.Form):
-    titulo= forms.CharField(max_length=30)
+    titulo= forms.CharField(max_length=100)
     isbn= forms.CharField(max_length=30)
     descripcion = forms.CharField(max_length=1000, required=False)
     fecha_publicacion = forms.DateField()
