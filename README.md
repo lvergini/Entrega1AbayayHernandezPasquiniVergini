@@ -35,3 +35,9 @@ Las siguientes URLs estan a disposición para el administrador:
 <p>Asimismo, si la base de datos tiene cargados libros del autor, estos deberán aparecer luego de la información de este, ordenados alfabéticamente por su título (tal como se indica en la definición de este modelo). </p>
 <p>En caso de que el autor ya esté cargado, pero no así alguno de sus libros, la página debe mostrar el mensaje: "Todavía no hay ningún libro cargado del autor", indicando su nombre y apellido. </p>
 <p>Por último, si se presiona el botón "Buscar" con el formulario vacío, la página redirige a la búsqueda (AppLibros/busquedaAutor.html), informando al usuario que no ha ingresado ningún dato. </p>
+
+<h3>Formulario para crear editoriales:</h3>
+<p>A través de GET (por ejemplo, cuando se ingresa por medio del menú desplegable), la página muestra un formulario vacío para completar. </p>
+<p>A través del método POST, muestra y envía los atributos para instanciar un objeto de esta clase. En este caso, todos los campos son obligtorios. </p>
+<p>Si el formulario es válido, debe redirigir a la página de inicio, en la que se mostrará un mensaje que indica que se creó la editorial, incluyendo su nombre. </p> 
+<p>Si hay un error al ingresar alguno de los datos requeridos, el formulario también redirige a la página inicio, pero en este caso el mensaje avisa al usuario que hubo un error. </p>
