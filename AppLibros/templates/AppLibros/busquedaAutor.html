@@ -1,0 +1,23 @@
+{% extends "AppLibros/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia1 %} Buscar autor {% endblock %}
+
+{% block contenidoQueCambia2 %}
+
+<h1>Ingrese el apellido del autor que desea buscar: </h1>
+
+
+<form action="{% url 'buscar' %}" method="GET"> {% csrf_token %}
+
+<p>Apellido:<input type="text" name="apellido", id="apellido"></p>
+
+
+<input type="submit", value="Buscar">
+
+</form>
+
+<h2 >{{ mensaje }}</h2>
+
+{% endblock %}
